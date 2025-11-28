@@ -76,7 +76,7 @@ session_start();
             <a href="src/assets/pages/paginaPerfil.php" style="font-family: Arial, Helvetica, sans-serif;">Página de Perfil</a>
 
             <?php if (!empty($_SESSION['usuario_nivel']) && $_SESSION['usuario_nivel'] >= 1): ?>
-              <a href="src/assets/pages/adminDashboard.php" style="font-family: Arial, Helvetica, sans-serif;">Página de Admin</a>
+              <a href="src/assets/pages/admPageDashboard.php" style="font-family: Arial, Helvetica, sans-serif;">Página de Admin</a>
             <?php endif; ?>
 
             <a href="src/assets/scripts/logout.php" style="font-family: Arial, Helvetica, sans-serif;">Logout</a>

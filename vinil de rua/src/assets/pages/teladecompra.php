@@ -62,10 +62,10 @@ session_start();
                     Olá, <?= htmlspecialchars($_SESSION['usuario_nome']) ?>
                 </p>
 
-                <a href="src/assets/pages/paginaPerfil.php" style="font-family: Arial, Helvetica, sans-serif;">Página de Perfil</a>
+                <a href="../pages/paginaPerfil.php" style="font-family: Arial, Helvetica, sans-serif;">Página de Perfil</a>
 
                 <?php if (!empty($_SESSION['usuario_nivel']) && $_SESSION['usuario_nivel'] >= 1): ?>
-                    <a href="src/assets/pages/adminDashboard.php" style="font-family: Arial, Helvetica, sans-serif;">Página de Admin</a>
+                    <a href="../pages/admPageDashboard.php" style="font-family: Arial, Helvetica, sans-serif;">Página de Admin</a>
                 <?php endif; ?>
 
                 <a href="../scripts/logout.php" style="font-family: Arial, Helvetica, sans-serif;">Logout</a>
