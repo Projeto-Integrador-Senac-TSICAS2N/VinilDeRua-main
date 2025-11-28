@@ -339,3 +339,18 @@ footer {
     align-items: center;
 
 }
+.produtoItem img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border: 2px solid black;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 10px;
+}
+@media (max-width: 600px) {
+  .produtoItem img {
+    width: 140px;
+    height: 140px;
+  }
+}

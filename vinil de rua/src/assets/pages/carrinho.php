@@ -1,270 +1,190 @@
 <?php
 session_start();
 require_once __DIR__ . "/../scripts/protecaoLogin.php";
+
+$carrinho = $_SESSION['carrinho'] ?? [];
+$total = 0;
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meu carrinho - Vinil de Rua</title>
-    <!-- FONTES USADASS -->
+
     <link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
-    <!-- SEPARAÇÃO -->
+
     <link rel="stylesheet" href="../styles/styleCarrinho.css">
-    <link rel="shortcut icon" type="imagex/png" href="../images/logoVinilDeRua.svg">
+    <link rel="icon" href="../images/logoVinilDeRua.svg">
 </head>
 
 <body>
+
     <div id="preloader">
-        <img src="https://i.ibb.co/qYwvJYpw/loading.gif " alt="loading" border="0">
+        <img src="https://i.ibb.co/qYwvJYpw/loading.gif" alt="loading">
     </div>
 
     <header>
         <div class="logoHeader">
-            <a href="/VinilDeRua-main/vinil de rua/index.php"><img src="https://i.ibb.co/zhNXFH1t/logo-Vinil-De-Rua-branca.png"
-                    alt="logo-Vinil-De-Rua" border="0"></a>
+            <a href="../../../index.php">
+                <img src="https://i.ibb.co/zhNXFH1t/logo-Vinil-De-Rua-branca.png" alt="logo-Vinil-De-Rua">
+            </a>
             <p>Vinil <br>de Rua</p>
         </div>
         <nav>
-            <a href="/VinilDeRua-main/vinil de rua/index.php">Cátalogo</a>
-            <a href="/VinilDeRua-main/vinil de rua/index.php">Ofertas</a>
-            <a href="/VinilDeRua-main/vinil de rua/index.php">Contato</a>
+            <a href="../../index.php">Cátalogo</a>
+            <a href="../../index.php">Ofertas</a>
+            <a href="../../index.php">Contato</a>
         </nav>
+
         <div class="icons">
-            <a href="../pages/favorito.php"><img src="https://i.ibb.co/ynVyBhq2/favorite.png"
-            alt="favorite"></a>
+            <a href="../pages/favorito.php"><img src="https://i.ibb.co/ynVyBhq2/favorite.png"></a>
+            <a href="../pages/carrinho.php"><img src="https://i.ibb.co/JRf4dtY8/shopping-cart.png"></a>
 
-    <a href="../pages/carrinho.php"><img src="https://i.ibb.co/JRf4dtY8/shopping-cart.png"
-            alt="shopping-cart"></a>
+            <div class="profile-menu">
+                <button type="button" class="profile-btn">
+                    <img src="https://i.ibb.co/4RGqW28z/account-circle.png">
+                </button>
 
-    <div class="profile-menu">
-        <button type="button" class="profile-btn">
-            <img src="https://i.ibb.co/4RGqW28z/account-circle.png" alt="account-circle">
-        </button>
+                <div class="profile-dropdown">
+                    <?php if (!isset($_SESSION['usuario_id'])): ?>
+                        <a href="../pages/perfilUsuario.php">Entrar / Cadastrar</a>
+                    <?php else: ?>
+                        <p class="profile-hello">
+                            Olá, <?= htmlspecialchars($_SESSION['usuario_nome']) ?>
+                        </p>
 
-        <div class="profile-dropdown">
-            <?php if (!isset($_SESSION['usuario_id'])): ?>
+                        <a href="../pages/paginaPerfil.php">Página de Perfil</a>
 
-                <!-- Não logado: só botão de login/cadastro -->
-                <a href="src/assets/pages/perfilUsuario.php">Entrar / Cadastrar</a>
+                        <?php if (!empty($_SESSION['usuario_nivel']) && $_SESSION['usuario_nivel'] >= 1): ?>
+                            <a href="../pages/adminDashboard.php">Página de Admin</a>
+                        <?php endif; ?>
 
-            <?php else: ?>
-
-                <p class="profile-hello" style="font-family: Arial, Helvetica, sans-serif;">
-                    Olá, <?= htmlspecialchars($_SESSION['usuario_nome']) ?>
-                </p>
-
-                <a href="src/assets/pages/paginaPerfil.php" style="font-family: Arial, Helvetica, sans-serif;">Página de Perfil</a>
-
-                <?php if (!empty($_SESSION['usuario_nivel']) && $_SESSION['usuario_nivel'] >= 1): ?>
-                    <a href="src/assets/pages/adminDashboard.php" style="font-family: Arial, Helvetica, sans-serif;">Página de Admin</a>
-                <?php endif; ?>
-
-                <a href="../scripts/logout.php" style="font-family: Arial, Helvetica, sans-serif;">Logout</a>
-
-            <?php endif; ?>
-        </div>
+                        <a href="../scripts/logout.php">Logout</a>
+                    <?php endif; ?>
+                </div>
+            </div>
         </div>
     </header>
 
 
     <section class="fundoPrincipal">
+
         <div class="cardTituloCarrinho">
             <div class="tituloCarrinho">
                 <h1>Carrinho</h1>
-                <img src="https://i.ibb.co/JRf4dtY8/shopping-cart.png" alt="">
+                <img src="https://i.ibb.co/JRf4dtY8/shopping-cart.png">
             </div>
         </div>
 
         <div class="infoSituation">
             <div class="produtoSituation">
-                <img src="https://i.ibb.co/zhNXFH1t/logo-Vinil-De-Rua-branca.png" alt="logo Vinil De Rua">
+                <img src="https://i.ibb.co/zhNXFH1t/logo-Vinil-De-Rua-branca.png">
                 <p>Produtos</p>
             </div>
             <div class="indentificacaoSituation">
-                <img src="https://i.ibb.co/RknvXKX2/logo-Vinil-De-Rua-preta.png" alt="logo Vinil De Rua">
-                <p>Indentificação</p>
+                <img src="https://i.ibb.co/RknvXKX2/logo-Vinil-De-Rua-preta.png">
+                <p>Identificação</p>
             </div>
             <div class="pagamentoSituation">
-                <img src="https://i.ibb.co/RknvXKX2/logo-Vinil-De-Rua-preta.png" alt="logo Vinil De Rua">
+                <img src="https://i.ibb.co/RknvXKX2/logo-Vinil-De-Rua-preta.png">
                 <p>Pagamento</p>
             </div>
         </div>
 
         <div class="itensCarrinho">
-            <div class="itemCar">
-                <img src="https://i.ibb.co/HQmNvPD/1999-Vinyl.png" alt="Capa do álbum 1999 - Joey Bada$$"
-                    class="imgCar">
-                <div class="infoCarrinho">
-                    <div class="info">
-                        <h1>Resumo</h1>
-                        <p>Vinyl Joey Bada$$ - 1999</p>
-                        <p>ID: 12345678</p>
-                    </div>
-                    <div class="info">
-                        <h1>Quantidade</h1>
-                        <div class="infoQuantidade">
-                            <input type="number" value="2" min="0" class="inputQtd" required>
-                        </div>
-                    </div>
-                    <div class="infoPreco">
-                        <h1>Preço unitário</h1>
-                        <p>R$200,00</p>
-                    </div>
-                    <div class="infoPrecoF">
-                        <h1>Preço final</h1>
-                        <p>R$200,00</p>
-                    </div>
-                </div>
-                <div class="deleteItem" id="deleteItem">
-                    <img src="https://i.ibb.co/Zzdfgwmf/delete.png" alt="">
-                </div>
-            </div>
 
-            <div class="itemCar">
-                <img src="https://i.ibb.co/qFNWX05J/love-Vinyl.png" alt="Capa do álbum Love Deluxe - Sade"
-                    class="imgCar">
-                <div class="infoCarrinho">
-                    <div class="info">
-                        <h1>Resumo</h1>
-                        <p>Vinyl Sade - Love Deluxe</p>
-                        <p>ID: 87654321</p>
-                    </div>
-                    <div class="info">
-                        <h1>Quantidade</h1>
-                        <div class="infoQuantidade">
-                            <input type="number" value="1" min="0" class="inputQtd" required>
-                        </div>
-                    </div>
-                    <div class="infoPreco">
-                        <h1>Preço unitário</h1>
-                        <p>R$150,00</p>
-                    </div>
-                    <div class="infoPrecoF">
-                        <h1>Preço final</h1>
-                        <p>R$150,00</p>
-                    </div>
-                </div>
-                <div class="deleteItem" id="deleteItem">
-                    <img src="https://i.ibb.co/Zzdfgwmf/delete.png" alt="">
-                </div>
-            </div>
+            <?php if (empty($carrinho)): ?>
+                <p style="text-align:center; font-size:20px; margin-top:30px;">Seu carrinho está vazio 😢</p>
 
-            <div class="itemCar">
-                <img src="https://i.ibb.co/mVMF4HZ2/mmesf-Vinyl.png"
-                    alt="Capa do álbum Melt my Eyez see your future - Denzel Curry" class="imgCar">
-                <div class="infoCarrinho">
-                    <div class="info">
-                        <h1>Resumo</h1>
-                        <p>Vinyl Melt my Eyez see your future - Denzel Curry</p>
-                        <p>ID: 13245768</p>
-                    </div>
-                    <div class="info">
-                        <h1>Quantidade</h1>
-                        <div class="infoQuantidade">
-                            <input type="number" value="3" min="0" class="inputQtd" required>
+            <?php else: ?>
+
+                <?php foreach ($carrinho as $item):
+                    $subtotal = $item['preco'] * $item['qtd'];
+                    $total += $subtotal;
+                ?>
+
+                <div class="itemCar">
+                    <img src="<?= $item['img_link'] ?>" class="imgCar" alt="Produto">
+                    <div class="infoCarrinho">
+
+                        <div class="info">
+                            <h1>Resumo</h1>
+                            <p><?= $item['nome'] ?></p>
+                            <p>ID: <?= $item['id'] ?></p>
+                        </div>
+
+                        <div class="info">
+                            <h1>Quantidade</h1>
+                            <input type="number"
+                                   min="1"
+                                   value="<?= $item['qtd'] ?>"
+                                   class="inputQtd"
+                                   onchange="location.href='../scripts/alterarQtd.php?id=<?= $item['id'] ?>&op=qtd&v='+this.value">
+                        </div>
+
+                        <div class="infoPreco">
+                            <h1>Preço unitário</h1>
+                            <p>R$<?= number_format($item['preco'], 2, ',', '.') ?></p>
+                        </div>
+
+                        <div class="infoPrecoF">
+                            <h1>Preço final</h1>
+                            <p><strong>R$<?= number_format($subtotal, 2, ',', '.') ?></strong></p>
                         </div>
                     </div>
-                    <div class="infoPreco">
-                        <h1>Preço unitário</h1>
-                        <p>R$250,00</p>
-                    </div>
-                    <div class="infoPrecoF">
-                        <h1>Preço final</h1>
-                        <p>R$250,00</p>
+
+                    <div class="deleteItem">
+                        <a href="../scripts/alterarQtd.php?id=<?= $item['id'] ?>&op=remover">
+                            <img src="https://i.ibb.co/Zzdfgwmf/delete.png">
+                        </a>
                     </div>
                 </div>
-                <div class="deleteItem" id="deleteItem">
-                    <img src="https://i.ibb.co/Zzdfgwmf/delete.png" alt="">
-                </div>
-            </div>
+
+                <?php endforeach; ?>
+
+            <?php endif; ?>
         </div>
 
         <div class="finalizarCompra">
             <div class="totalCompra">
                 <h1>Total da compra</h1>
-                <p class="resultadoFinal">R$1.300,00</p>
+                <p class="resultadoFinal">R$<?= number_format($total, 2, ',', '.') ?></p>
             </div>
+
             <div class="finalizarButton">
-                <button type="submit" onclick="window.open('/src/assets/pages/resumoCompra.html', '_self')">Finalizar compra</button>
+                <a href="<?= empty($carrinho) ? '#' : '../pages/identificacao.php'; ?>">
+                    <button <?= empty($carrinho) ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : '' ?>>
+                        Avançar
+                    </button>
+                </a>
             </div>
         </div>
 
-
-
-
-
         <footer id="contato">
-                <div class="footerLogo">
-                    <img src="https://i.ibb.co/zhNXFH1t/logo-Vinil-De-Rua-branca.png" alt="Vinil de Rua" class="logo">
-                    <h1>VINIL <br>DE RUA</h1>
-                </div>
-                
-                <div class="avisosFooter">
-                    <p>Duvidas? (11) 4002-8922 (SP)</p>
-                    <p>Seg a Sex, 9h às 21h Sáb 10h às 18h</p>
+            <div class="footerLogo">
+                <img src="https://i.ibb.co/zhNXFH1t/logo-Vinil-De-Rua-branca.png" class="logo">
+                <h1>VINIL <br>DE RUA</h1>
+            </div>
 
-                </div>
-                <div class="termos">
-                    <a href="">Termos e Condições</a>
-                </div>
-                
+            <div class="avisosFooter">
+                <p>Duvidas? (11) 4002-8922 (SP)</p>
+                <p>Seg a Sex, 9h às 21h Sáb 10h às 18h</p>
+            </div>
+
+            <div class="termos">
+                <a href="#">Termos e Condições</a>
+            </div>
         </footer>
     </section>
 
     <script src="../scripts/navbar.js"></script>
     <script src="../scripts/loading.js"></script>
-    <script src="../scripts/carrinho.js"></script>
     <script src="../scripts/profileScript.js"></script>
-    <script>
-        window.onload = function () {
-            let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-            const divCarrinho = document.getElementsByClassName("itensCarrinho")[0];
 
-
-
-            carrinho.forEach(produto => {
-                let novoProdutoCarrinho = document.createElement("div");
-                novoProdutoCarrinho.classList.add("itemCar");
-                novoProdutoCarrinho.innerHTML = `
-                    <img src="${produto.img}" alt="${produto.titulo}" class="imgCar">
-                    <div class="infoCarrinho">
-                        <div class="info">
-                            <h1>Resumo</h1>
-                            <p>${produto.titulo}</p>
-                            <p>ID: ${produto.id}</p>
-                        </div>
-                        <div class="info">
-                        <h1>Quantidade</h1>
-                        <div class="infoQuantidade">
-                            <input type="number" value="3" min="0" class="inputQtd" required>
-                            </div>
-                        </div>
-                        <div class="infoPreco">
-                            <h1>Preço unitário</h1>
-                            <p>${produto.preco}</p>
-                        </div>
-                        <div class="infoPrecoF">
-                        <h1>Preço final</h1>
-                        <p>R$200,00</p>
-                    </div>
-                </div>
-                <div class="deleteItem" id="deleteItem">
-                    <img src="https://i.ibb.co/Zzdfgwmf/delete.png" alt="">
-                </div>
-                </div>
-                `;
-                divCarrinho.append(novoProdutoCarrinho);
-            });
-        }
-    </script>
 </body>
-
 </html>

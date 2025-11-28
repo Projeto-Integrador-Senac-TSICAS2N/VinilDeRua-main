@@ -137,256 +137,177 @@ session_start();
       </div>
 
       <div class="catalogoIndex">
-        <div class="cardDisco">
-          <img
-            src="https://i.ibb.co/HQmNvPD/1999-Vinyl.png"
-            alt="Capa do álbum 1999 - Joey Bada$$"
-            class="imgCard" />
-          <div class="infoDisco">
-            <p class="nomeDisco">1999 - Joey Bada$$</p>
-            <p class="precoDisco">R$ 200</p>
-          </div>
-          <div class="preçoEFavDisco">
-            <button
-              class="btnComprarAgora"
-              onclick="window.open('src/assets/pages/teladecompra.php', '_blank')">
-              Comprar agora
-            </button>
-            <div class="cart">
-              <button class="addCarrinho">
-                <img
-                  src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png"
-                  alt="carrinho" />
-              </button>
-            </div>
-            <div class="favorite">
-              <a href="src/assets/pages/favorito.php">
-                <img
-                  src="https://i.ibb.co/5mHR0sq/favorite-Black.png"
-                  alt="favorito" />
-              </a>
-            </div>
-          </div>
-        </div>
 
-        <div class="cardDisco">
-          <img
-            src="https://i.ibb.co/jZq6YsFN/amlLP.png"
-            alt="Capa do  álbum Awaken, my love - Childish Gambino"
-            class="imgCard" />
-          <div class="infoDisco">
-            <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
-            <p class="precoDisco">R$ 130</p>
-          </div>
-          <div class="preçoEFavDisco">
-            <button
-              class="btnComprarAgora"
-              onclick="window.open('src/assets/pages/teladecompra.php', '_blank')">
-              Comprar agora
-            </button>
-            <div class="cart">
-              <button class="addCarrinho">
-                <img
-                  src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png"
-                  alt="carrinho" />
-              </button>
-            </div>
-            <div class="favorite">
-              <a href="src/assets/pages/favorito.php">
-                <img
-                  src="https://i.ibb.co/5mHR0sq/favorite-Black.png"
-                  alt="favorito" />
-              </a>
-            </div>
-          </div>
+    <!-- 1 -->
+    <div class="cardDisco">
+      <img src="https://i.ibb.co/HQmNvPD/1999-Vinyl.png" class="imgCard">
+      <div class="infoDisco">
+        <p class="nomeDisco">1999 - Joey Bada$$</p>
+        <p class="precoDisco">R$ 200</p>
+      </div>
+      <div class="preçoEFavDisco">
+        <a href="src/assets/scripts/addCarrinho.php?id=1" class="btnComprarAgora">Comprar agora</a>
+        <div class="cart">
+          <a href="src/assets/scripts/addCarrinho.php?id=1">
+            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
+          </a>
         </div>
-
-        <div class="cardDisco">
-          <img
-            src="https://i.ibb.co/qFNWX05J/love-Vinyl.png"
-            alt="Capa do álbum Love Deluxe - Sade"
-            class="imgCard" />
-          <div class="infoDisco">
-            <p class="nomeDisco">Love Deluxe - Sade</p>
-            <p class="precoDisco">R$ 150</p>
-          </div>
-          <div class="preçoEFavDisco">
-            <button
-              class="btnComprarAgora"
-              onclick="window.open('src/assets/pages/teladecompra.php', '_blank')">
-              Comprar agora
-            </button>
-            <div class="cart">
-              <button class="addCarrinho">
-                <img
-                  src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png"
-                  alt="carrinho" />
-              </button>
-            </div>
-            <div class="favorite">
-              <a href="src/assets/pages/favorito.php">
-                <img
-                  src="https://i.ibb.co/5mHR0sq/favorite-Black.png"
-                  alt="favorito" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="cardDisco">
-          <img
-            src="https://i.ibb.co/VYVGyS5V/mr-Morale-Vinyl.png"
-            alt="Capa do álbum Mr Morale & Big Steppers - Kendrick Lamar"
-            class="imgCard" />
-          <div class="infoDisco">
-            <p class="nomeDisco">Mr Morale & Big Steppers - Kendrick Lamar</p>
-            <p class="precoDisco">R$ 350</p>
-          </div>
-          <div class="preçoEFavDisco">
-            <button
-              class="btnComprarAgora"
-              onclick="window.open('src/assets/pages/teladecompra.php', '_blank')">
-              Comprar agora
-            </button>
-            <div class="cart">
-              <button class="addCarrinho">
-                <img
-                  src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png"
-                  alt="carrinho" />
-              </button>
-            </div>
-            <div class="favorite">
-              <a href="src/assets/pages/favorito.php">
-                <img
-                  src="https://i.ibb.co/5mHR0sq/favorite-Black.png"
-                  alt="favorito" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="cardDisco">
-          <img
-            src="https://i.ibb.co/mVMF4HZ2/mmesf-Vinyl.png"
-            alt="Capa do álbum Melt my Eyez see your futere - Denzel Curry"
-            class="imgCard" />
-          <div class="infoDisco">
-            <p class="nomeDisco">
-              Melt my Eyez see your futere - Denzel Curry
-            </p>
-            <p class="precoDisco">R$ 250</p>
-          </div>
-          <div class="preçoEFavDisco">
-            <button
-              class="btnComprarAgora"
-              onclick="window.open('src/assets/pages/teladecompra.php', '_blank')">
-              Comprar agora
-            </button>
-            <div class="cart">
-              <button class="addCarrinho">
-                <img
-                  src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png"
-                  alt="carrinho" />
-              </button>
-            </div>
-            <div class="favorite">
-              <a href="src/assets/pages/favorito.php"><img
-                  src="https://i.ibb.co/5mHR0sq/favorite-Black.png"
-                  alt="favorito" /></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="cardDisco">
-          <img
-            src="https://i.ibb.co/Fk37ghWh/recVinyl.png"
-            alt="Capa do  álbum Rap é Compromisso - Sabotage"
-            class="imgCard" />
-          <div class="infoDisco">
-            <p class="nomeDisco">Rap é Compromisso - Sabotage</p>
-            <p class="precoDisco">R$ 200</p>
-          </div>
-          <div class="preçoEFavDisco">
-            <button
-              class="btnComprarAgora"
-              onclick="window.open('src/assets/pages/teladecompra.php', '_blank')">
-              Comprar agora
-            </button>
-            <div class="cart">
-              <button class="addCarrinho">
-                <img
-                  src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png"
-                  alt="carrinho" />
-              </button>
-            </div>
-            <div class="favorite">
-              <a href="src/assets/pages/favorito.php"><img
-                  src="https://i.ibb.co/5mHR0sq/favorite-Black.png"
-                  alt="favorito" /></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="cardDisco">
-          <img
-            src="https://i.ibb.co/6JtS9K8S/Stankonia.png"
-            alt="Capa do álbum Stankonia - Outkast"
-            class="imgCard" />
-          <div class="infoDisco">
-            <p class="nomeDisco">Stankonia - Outkast</p>
-            <p class="precoDisco">R$ 330</p>
-          </div>
-          <div class="preçoEFavDisco">
-            <button
-              class="btnComprarAgora"
-              onclick="window.open('src/assets/pages/teladecompra.php', '_blank')">
-              Comprar agora
-            </button>
-            <div class="cart">
-              <button class="addCarrinho">
-                <img
-                  src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png"
-                  alt="carrinho" />
-              </button>
-            </div>
-            <div class="favorite">
-              <a href="src/assets/pages/favorito.php"><img
-                  src="https://i.ibb.co/5mHR0sq/favorite-Black.png"
-                  alt="favorito" /></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="cardDisco">
-          <img
-            src="https://i.ibb.co/whBF5M2S/gnxVinyl.png"
-            alt="Capa do  álbum GNX - Kendrick Lamar"
-            class="imgCard" />
-          <div class="infoDisco">
-            <p class="nomeDisco">GNX - Kendrick Lamar</p>
-            <p class="precoDisco">R$ 320</p>
-          </div>
-          <div class="preçoEFavDisco">
-            <button
-              class="btnComprarAgora"
-              onclick="window.open('src/assets/pages/teladecompra.php', '_blank')">
-              Comprar agora
-            </button>
-            <div class="cart">
-              <button class="addCarrinho">
-                <img
-                  src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png"
-                  alt="carrinho" />
-              </button>
-            </div>
-            <div class="favorite">
-              <a href="src/assets/pages/favorito.php"><img
-                  src="https://i.ibb.co/5mHR0sq/favorite-Black.png"
-                  alt="favorito" /></a>
-            </div>
-          </div>
+        <div class="favorite">
+          <a href="src/assets/pages/favorito.php">
+            <img src="https://i.ibb.co/5mHR0sq/favorite-Black.png">
+          </a>
         </div>
       </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="cardDisco">
+      <img src="https://i.ibb.co/jZq6YsFN/amlLP.png" class="imgCard">
+      <div class="infoDisco">
+        <p class="nomeDisco">Awaken, My Love - Childish Gambino</p>
+        <p class="precoDisco">R$ 130</p>
+      </div>
+      <div class="preçoEFavDisco">
+        <a href="src/assets/scripts/addCarrinho.php?id=2" class="btnComprarAgora">Comprar agora</a>
+        <div class="cart">
+          <a href="src/assets/scripts/addCarrinho.php?id=2">
+            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
+          </a>
+        </div>
+        <div class="favorite">
+          <a href="src/assets/pages/favorito.php">
+            <img src="https://i.ibb.co/5mHR0sq/favorite-Black.png">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="cardDisco">
+      <img src="https://i.ibb.co/qFNWX05J/love-Vinyl.png" class="imgCard">
+      <div class="infoDisco">
+        <p class="nomeDisco">Love Deluxe - Sade</p>
+        <p class="precoDisco">R$ 150</p>
+      </div>
+      <div class="preçoEFavDisco">
+        <a href="src/assets/scripts/addCarrinho.php?id=3" class="btnComprarAgora">Comprar agora</a>
+        <div class="cart">
+          <a href="src/assets/scripts/addCarrinho.php?id=3">
+            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
+          </a>
+        </div>
+        <div class="favorite">
+          <a href="src/assets/pages/favorito.php">
+            <img src="https://i.ibb.co/5mHR0sq/favorite-Black.png">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="cardDisco">
+      <img src="https://i.ibb.co/VYVGyS5V/mr-Morale-Vinyl.png" class="imgCard">
+      <div class="infoDisco">
+        <p class="nomeDisco">Mr Morale & Big Steppers - Kendrick Lamar</p>
+        <p class="precoDisco">R$ 350</p>
+      </div>
+      <div class="preçoEFavDisco">
+        <a href="src/assets/scripts/addCarrinho.php?id=4" class="btnComprarAgora">Comprar agora</a>
+        <div class="cart">
+          <a href="src/assets/scripts/addCarrinho.php?id=4">
+            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
+          </a>
+        </div>
+        <div class="favorite">
+          <a href="src/assets/pages/favorito.php">
+            <img src="https://i.ibb.co/5mHR0sq/favorite-Black.png">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="cardDisco">
+      <img src="https://i.ibb.co/mVMF4HZ2/mmesf-Vinyl.png" class="imgCard">
+      <div class="infoDisco">
+        <p class="nomeDisco">Melt My Eyez - Denzel Curry</p>
+        <p class="precoDisco">R$ 250</p>
+      </div>
+      <div class="preçoEFavDisco">
+        <a href="src/assets/scripts/addCarrinho.php?id=5" class="btnComprarAgora">Comprar agora</a>
+        <div class="cart">
+          <a href="src/assets/scripts/addCarrinho.php?id=5">
+            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
+          </a>
+        </div>
+        <div class="favorite">
+          <a href="src/assets/pages/favorito.php"><img src="https://i.ibb.co/5mHR0sq/favorite-Black.png"></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="cardDisco">
+      <img src="https://i.ibb.co/Fk37ghWh/recVinyl.png" class="imgCard">
+      <div class="infoDisco">
+        <p class="nomeDisco">Rap é Compromisso - Sabotage</p>
+        <p class="precoDisco">R$ 200</p>
+      </div>
+      <div class="preçoEFavDisco">
+        <a href="src/assets/scripts/addCarrinho.php?id=6" class="btnComprarAgora">Comprar agora</a>
+        <div class="cart">
+          <a href="src/assets/scripts/addCarrinho.php?id=6">
+            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
+          </a>
+        </div>
+        <div class="favorite">
+          <a href="src/assets/pages/favorito.php"><img src="https://i.ibb.co/5mHR0sq/favorite-Black.png"></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="cardDisco">
+      <img src="https://i.ibb.co/6JtS9K8S/Stankonia.png" class="imgCard">
+      <div class="infoDisco">
+        <p class="nomeDisco">Stankonia - Outkast</p>
+        <p class="precoDisco">R$ 330</p>
+      </div>
+      <div class="preçoEFavDisco">
+        <a href="src/assets/scripts/addCarrinho.php?id=7" class="btnComprarAgora">Comprar agora</a>
+        <div class="cart">
+          <a href="src/assets/scripts/addCarrinho.php?id=7">
+            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
+          </a>
+        </div>
+        <div class="favorite">
+          <a href="src/assets/pages/favorito.php"><img src="https://i.ibb.co/5mHR0sq/favorite-Black.png"></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="cardDisco">
+      <img src="https://i.ibb.co/whBF5M2S/gnxVinyl.png" class="imgCard">
+      <div class="infoDisco">
+        <p class="nomeDisco">GNX - Kendrick Lamar</p>
+        <p class="precoDisco">R$ 320</p>
+      </div>
+      <div class="preçoEFavDisco">
+        <a href="src/assets/scripts/addCarrinho.php?id=8" class="btnComprarAgora">Comprar agora</a>
+        <div class="cart">
+          <a href="src/assets/scripts/addCarrinho.php?id=8">
+            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
+          </a>
+        </div>
+        <div class="favorite">
+          <a href="src/assets/pages/favorito.php"><img src="https://i.ibb.co/5mHR0sq/favorite-Black.png"></a>
+        </div>
+      </div>
+    </div>
+
+</div>
+
     </section>
 
     <div class="btnVerMais">

@@ -469,3 +469,57 @@ footer {
     align-items: center;
     gap: 15px;
 }
+.cardDisco {
+    width: 260px;
+    height: 380px; /* garante espaço suficiente */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #f2f2f2;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.infoDisco {
+    min-height: 60px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.preçoEFavDisco {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    gap: 6px;
+}
+
+.btnComprarAgora {
+    width: 120px;
+    height: 32px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.imgCard {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+}
+.catalogoCategoria {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 por linha */
+    gap: 30px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.imgCard {
+    width: 100%;
+    height: 200px; /* tamanho fixo */
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #fff;
+}
