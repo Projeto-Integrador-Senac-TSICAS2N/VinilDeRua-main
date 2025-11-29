@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
     <!-- SEPARAÇÃO -->
-    <link rel="stylesheet" href="/src/assets/styles/styleAdm.css">
-    <link rel="shortcut icon" type="imagex/png" href="/src/assets/images/logoVinilDeRua.svg">
+    <link rel="stylesheet" href="../styles/styleAdm.css">
+    <link rel="shortcut icon" type="imagex/png" href="../images/logoVinilDeRua.svg">
 </head>
 
 <body>
@@ -32,17 +32,11 @@
             </div>
 
             <nav class="menuPrincipal">
-                <button class="itemMenu"
-                    onclick="window.open('/src/assets/pages/admPageTProdutos.html' , '_self')">Todos os
-                    produtos</button>
-                <button class="itemMenu"
-                    onclick="window.open('/src/assets/pages/admPageDashboard.html', '_self')">Dashboard</button>
-                <button class="itemMenuAtivo"
-                    onclick="window.open('/src/assets/pages/admPageAddP.html' , '_self')">Adicionar Produto</button>
-                <button class="itemMenu"
-                    onclick="window.open('/src/assets/pages/admPageRemoveP.html' , '_self')">Deletar Produto</button>
-                <button class="itemMenu"
-                    onclick="window.open('/src/assets/pages/admPageNotificacao.html' , '_self')">Notificações</button>
+                <button class="itemMenu" onclick="window.open('../pages/admPageTProdutos.php' , '_self')">Todos os produtos</button>
+                <button class="itemMenu" onclick="window.open('../pages/admPageDashboard.php', '_self')">Dashboard</button>
+                <button class="itemMenuAtivo" onclick="window.open('../pages/admPageAddP.php' , '_self')">Adicionar Produto</button>
+                <button class="itemMenu" onclick="window.open('../pages/admPageRemoveP.php' , '_self')">Deletar Produto</button>
+                <button class="itemMenu" onclick="window.open('../pages/admPageNotificacao.php' , '_self')">Notificações</button>
             </nav>
 
             <div class="menuCategorias">
@@ -84,51 +78,62 @@
 
                     <div class="formsNovoProduto">
 
-                        <form action="">
+                        <form action="../scripts/addProduto.php" method="POST">
+
                             <div class="infoForms">
-                                <label for="">Nome do produto:</label>
-                                <input type="text" name="infoForms" id="" placeholder="Nome...">
+                                <label>Nome do produto:</label>
+                                <input type="text" name="nome" placeholder="Nome..." required>
                             </div>
 
                             <div class="infoForms">
-                                <label for="">Nome do(a) artista:</label>
-                                <input type="text" name="infoForms" id="" placeholder="Nome...">
+                                <label>Nome do(a) artista:</label>
+                                <input type="text" name="autor" placeholder="Nome..." required>
                             </div>
 
                             <div class="infoForms">
-                                <label for="">Preço:</label>
-                                <input type="text" name="infoForms" id="" placeholder="Preço...">
+                                <label>Preço:</label>
+                                <input type="number" step="0.01" name="preco" placeholder="Preço..." required>
                             </div>
 
                             <div class="infoForms">
-                                <label for="">Quantidade:</label>
-                                <input type="text" name="infoForms" id="" placeholder="Quantidade...">
+                                <label>Quantidade (Estoque):</label>
+                                <input type="number" name="estoque" placeholder="Quantidade..." required>
                             </div>
+
+                            <div class="infoForms">
+                                <label>Gênero Musical/Tecnologia:</label>
+                                <input type="text" name="genero" placeholder="Gênero/Tecnologia..." required>
+                            </div>
+
+                            <div class="infoForms">
+                                <label>Link da Imagem do Álbum:</label>
+                                <input type="text" name="img_link" placeholder="Link da imagem do álbum..." required>
+                            </div>
+
+                            <div class="LPorVit">
+                                <label for="vitOrLP">Selecione o tipo de produto:</label>
+                                <select id="vitOrLP" name="categoria" required>
+                                    <option value="" hidden>Selecione</option>
+                                    <option value="1">Vitrola</option>
+                                    <option value="0">Vinil</option>
+                                </select>
+
+                            </div>
+
                             <div class="btnAdicionarP">
-                                <button onclick=" alert('produto adicionada com sucesso!')">Adicionar produto</button>
+                                <button type="submit">Adicionar Produto</button>
                             </div>
+
                         </form>
+
                     </div>
-
-                    <div class="addFoto">
-                        <h1>Adicione a foto do produto</h1>
-
-                        <label class="areaUpload" id="zonaUpload">
-                        <span class="iconeUpload" id="iconeUpload">+</span>
-                        <input type="file" id="inputArquivo" accept="image/*">
-                        <img id="imagemPreview" class="preVisualizacao" style="display:none;">
-                        </label>
-
-                        <button id="botaoAdicionar">Adicionar imagem</button>
-                    </div>
-
                 </div>
 
             </section>
         </main>
     </div>
-    <script src="/src/assets/scripts/loading.js"></script>
-    <script src="/src/assets/scripts/addImag.js"></script>
+    <script src="../scripts/loading.js"></script>
+    <script src="../scripts/addImag.js"></script>
 </body>
 
-</html>
+</html> 

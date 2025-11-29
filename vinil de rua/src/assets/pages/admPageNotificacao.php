@@ -27,16 +27,18 @@
         <!-- MENU LATERAL -->
         <aside class="menuLateral">
             <div class="areaLogo">
-                <img src="https://i.ibb.co/RknvXKX2/logo-Vinil-De-Rua-preta.png" alt="Logo Vinil de Rua">
+                <a href="/VinilDeRua-main/vinil de rua/index.php">
+                    <img src="https://i.ibb.co/RknvXKX2/logo-Vinil-De-Rua-preta.png" alt="Logo Vinil de Rua">
+                </a>
                 <h1>Vinil de Rua</h1>
             </div>
 
             <nav class="menuPrincipal"> 
-                <button class="itemMenu" onclick="window.open('/src/assets/pages/admPageTProdutos.html' , '_self')">Todos os produtos</button>
-                <button class="itemMenu" onclick="window.open('/src/assets/pages/admPageDashboard.html', '_self')">Dashboard</button>
-                <button class="itemMenu" onclick="window.open('/src/assets/pages/admPageAddP.html' , '_self')">Adicionar Produto</button>
-                <button class="itemMenu" onclick="window.open('/src/assets/pages/admPageRemoveP.html' , '_self')">Deletar Produto</button>
-                <button class="itemMenuAtivo" onclick="window.open('/src/assets/pages/admPageNotificacao.html' , '_self')">Notificações</button>
+                <button class="itemMenu" onclick="window.open('../pages/admPageTProdutos.php' , '_self')">Todos os produtos</button>
+                <button class="itemMenu" onclick="window.open('../pages/admPageDashboard.php', '_self')">Dashboard</button>
+                <button class="itemMenu" onclick="window.open('../pages/admPageAddP.php' , '_self')">Adicionar Produto</button>
+                <button class="itemMenu" onclick="window.open('../pages/admPageRemoveP.php' , '_self')">Deletar Produto</button>
+                <button class="itemMenuAtivo" onclick="window.open('../pages/admPageNotificacao.php' , '_self')">Notificações</button>
             </nav>
 
             <div class="menuCategorias">

@@ -96,11 +96,11 @@ while ($row = $res->fetch_assoc()) $ultimosProdutos[] = $row;
     <!-- -------- MENU LATERAL -------- -->
     <aside class="menuLateral">
         <div class="areaLogo">
-            <a href="/VinilDeRua-main/vinil de rua/index.php">
-                <img src="https://i.ibb.co/RknvXKX2/logo-Vinil-De-Rua-preta.png">
-            </a>
-            <h1>Vinil de Rua</h1>
-        </div>
+                <a href="/VinilDeRua-main/vinil de rua/index.php">
+                    <img src="https://i.ibb.co/RknvXKX2/logo-Vinil-De-Rua-preta.png" alt="Logo Vinil de Rua">
+                </a>
+                <h1>Vinil de Rua</h1>
+            </div>
 
         <nav class="menuPrincipal">
             <button onclick="location.href='admPageTProdutos.php'">Todos os produtos</button>
@@ -161,7 +161,7 @@ while ($row = $res->fetch_assoc()) $ultimosProdutos[] = $row;
                 <!-- ÚLTIMAS AÇÕES -->
                 <div class="cardDashboard">
                     <h3>Últimas ações</h3>
-
+    
                     <h4>Últimos pedidos</h4>
                     <ul>
                         <?php if (!$ultimosPedidos): ?>
@@ -175,7 +175,7 @@ while ($row = $res->fetch_assoc()) $ultimosProdutos[] = $row;
                             </li>
                         <?php endforeach; endif; ?>
                     </ul>
-
+                            <br>
                     <h4>Últimos produtos cadastrados</h4>
                     <ul>
                         <?php if (!$ultimosProdutos): ?>

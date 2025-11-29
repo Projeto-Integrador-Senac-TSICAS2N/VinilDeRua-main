@@ -60,10 +60,10 @@ require_once __DIR__ . "/../scripts/conexao.php";
             </div>
 
             <nav class="menuPrincipal">
-                <button class="itemMenuAtivo" onclick="window.open('../pages/admPageNotificacao.php' , '_self')">Todos os produtos</button>
-                <button class="itemMenu" onclick="window.open('../pages/admPageNotificacao.php', '_self')">Dashboard</button>
-                <button class="itemMenu" onclick="window.open('../pages/admPageNotificacao.php' , '_self')">Adicionar Produto</button>
-                <button class="itemMenu" onclick="window.open('../pages/admPageNotificacao.php' , '_self')">Deletar Produto</button>
+                <button class="itemMenuAtivo" onclick="window.open('../pages/admPageTProdutos.php' , '_self')">Todos os produtos</button>
+                <button class="itemMenu" onclick="window.open('../pages/admPageDashboard.php', '_self')">Dashboard</button>
+                <button class="itemMenu" onclick="window.open('../pages/admPageAddP.php' , '_self')">Adicionar Produto</button>
+                <button class="itemMenu" onclick="window.open('../pages/admPageRemoveP.php' , '_self')">Deletar Produto</button>
                 <button class="itemMenu" onclick="window.open('../pages/admPageNotificacao.php' , '_self')">Notificações</button>
             </nav>
 
@@ -88,13 +88,15 @@ require_once __DIR__ . "/../scripts/conexao.php";
 
                     while ($row = $result->fetch_assoc()):
                     ?>
-                        <li onclick=\"filtrarCategoria('<?php echo $row['genero']; ?>', this)\"
-                            style=\"display:flex; justify-content:space-between; cursor:pointer;
-                            padding:4px 2px; font-family:'Young Serif'; font-size:15px; transition:0.2s;\">
+                        <li onclick="filtrarCategoria('<?php echo $row['genero']; ?>', this)"
+                            style="display:flex; justify-content:space-between; cursor:pointer;
+                            padding:4px 2px; font-family:'Young Serif'; font-size:15px; transition:0.2s;">
                             <span><?php echo $row['genero']; ?></span>
                             <span><?php echo $row['total']; ?></span>
                         </li>
-                    <?php endwhile; ?>
+                    <?php 
+                    endwhile; 
+                    ?>
                 </ul>
             </div>
 

@@ -157,7 +157,7 @@ $total = 0;
             </div>
 
             <div class="finalizarButton">
-                <a href="<?= empty($carrinho) ? '#' : '../pages/identificacao.php'; ?>">
+                <a href="<?= empty($carrinho) ? '#' : '../pages/resumoPagamento.php'; ?>">
                     <button <?= empty($carrinho) ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : '' ?>>
                         Avançar
                     </button>

@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo->commit();
 
         $_SESSION['sucesso'] = "Conta criada com sucesso! Faça login.";
-        header("Location: ../pages/perfilUsuario.php");
+        header("Location: /VinilDeRua-main/vinil de rua/index.php");
         exit();
     } catch (Exception $e) {
         $pdo->rollBack();

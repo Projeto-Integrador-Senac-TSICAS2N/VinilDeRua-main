@@ -105,36 +105,50 @@ session_start();
   </main>
   <section class="fundoPrincipal">
     <section class="offECatalogo" id="catalogo">
-      <div class="offEimg">
-        <h1>70% OFF LIMITADO!</h1>
-        <img src="https://i.ibb.co/yckTbjhV/paleta.png" alt="" />
-      </div>
-
       <div class="cardOff">
-        <div class="listaDiscos">
-          <div class="cardDiscoOff">
-            <img
-              src="https://i.ibb.co/jZq6YsFN/amlLP.png"
-              alt="Capa do  álbum Awaken, my love - Childish Gambino"
-              class="imgCard" />
-            <div class="infoDisco">
-              <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
-              <p class="offDisco">60% Off</p>
-            </div>
-          </div>
+                <div class="linkEImg">
+                    <div class="offEimg">
+                        <h1>70% OFF LIMITADO!</h1>
+                        <a href="/src/assets/pages/pageOff.html" class="offDisco">VEJA MAIS AQUI</a>
+                    </div>
+                    <img src="https://i.ibb.co/yckTbjhV/paleta.png" alt="">
+                </div>
+                <div class="listaDiscos">
+                    <div class="cardDiscoOff">
+                        <img src="https://i.ibb.co/jZq6YsFN/amlLP.png"
+                        alt="Capa do  álbum Awaken, my love - Childish Gambino" class="imgCard">
+                        <div class="infoDisco">
+                            <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
+                            <p class="offDisco">60% Off</p>
+                        </div>
+                    </div>
 
-          <div class="cardDiscoOff">
-            <img
-              src="https://i.ibb.co/jZq6YsFN/amlLP.png"
-              alt="Capa do  álbum Awaken, my love - Childish Gambino"
-              class="imgCard" />
-            <div class="infoDisco">
-              <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
-              <p class="offDisco">60% Off</p>
+                    <div class="cardDiscoOff">
+                        <img src="https://i.ibb.co/jZq6YsFN/amlLP.png"
+                        alt="Capa do  álbum Awaken, my love - Childish Gambino" class="imgCard">
+                        <div class="infoDisco">
+                            <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
+                            <p class="offDisco">60% Off</p>
+                        </div>
+                    </div>
+                    <div class="cardDiscoOff">
+                        <img src="https://i.ibb.co/jZq6YsFN/amlLP.png"
+                        alt="Capa do  álbum Awaken, my love - Childish Gambino" class="imgCard">
+                        <div class="infoDisco">
+                            <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
+                            <p class="offDisco">60% Off</p>
+                        </div>
+                    </div>
+                    <div class="cardDiscoOff">
+                        <img src="https://i.ibb.co/jZq6YsFN/amlLP.png"
+                        alt="Capa do  álbum Awaken, my love - Childish Gambino" class="imgCard">
+                        <div class="infoDisco">
+                            <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
+                            <p class="offDisco">60% Off</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
 
       <div class="catalogoIndex">
 
