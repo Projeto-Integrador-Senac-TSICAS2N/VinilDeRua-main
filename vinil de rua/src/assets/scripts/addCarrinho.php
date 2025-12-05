@@ -39,6 +39,6 @@ if (isset($_GET['redirect']) && $_GET['redirect'] === 'carrinho') {
 
 
 // Se foi só "adicionar" → volta para página anterior
-header("Location: " . $_SERVER['HTTP_REFERER']);
+header("Location: ../pages/carrinho.php");
 exit;
 ?>

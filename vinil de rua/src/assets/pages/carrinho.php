@@ -61,7 +61,7 @@ $total = 0;
                         <a href="../pages/paginaPerfil.php">Página de Perfil</a>
 
                         <?php if (!empty($_SESSION['usuario_nivel']) && $_SESSION['usuario_nivel'] >= 1): ?>
-                            <a href="../pages/adminDashboard.php">Página de Admin</a>
+                            <a href="../pages/admPageDashboard.php">Página de Admin</a>
                         <?php endif; ?>
 
                         <a href="../scripts/logout.php">Logout</a>

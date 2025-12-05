@@ -1,5 +1,25 @@
 <?php
 session_start();
+require_once __DIR__ . "/src/assets/scripts/conexao.php";
+
+// Gêneros desejados
+$generos = ["Grime", "Boombap", "Drill", "R&B"];
+
+$produtosFixos = [];
+
+// Puxa 2 discos por gênero
+foreach ($generos as $g) {
+  $stmt = $pdo->prepare("
+        SELECT id, nome, autor, preco, img_link
+        FROM produtos
+        WHERE genero = :gen
+        ORDER BY RAND()
+        LIMIT 2
+    ");
+  $stmt->execute([':gen' => $g]);
+
+  $produtosFixos = array_merge($produtosFixos, $stmt->fetchAll(PDO::FETCH_ASSOC));
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +66,7 @@ session_start();
     </div>
     <nav>
       <a href="#catalogo">Cátalogo</a>
-      <a href="">Ofertas</a>
+      <a href="/VinilDeRua-main/vinil de rua/src/assets/pages/pageOff.php">Ofertas</a>
       <a href="#contato">Contato</a>
     </nav>
     <div class="icons">
@@ -73,7 +93,7 @@ session_start();
               Olá, <?= htmlspecialchars($_SESSION['usuario_nome']) ?>
             </p>
 
-            <a href="src/assets/pages/paginaPerfil.php" style="font-family: Arial, Helvetica, sans-serif;">Página de Perfil</a>
+            <a href="src/assets/pages/perfil.php" style="font-family: Arial, Helvetica, sans-serif;">Página de Perfil</a>
 
             <?php if (!empty($_SESSION['usuario_nivel']) && $_SESSION['usuario_nivel'] >= 1): ?>
               <a href="src/assets/pages/admPageDashboard.php" style="font-family: Arial, Helvetica, sans-serif;">Página de Admin</a>
@@ -106,221 +126,91 @@ session_start();
   <section class="fundoPrincipal">
     <section class="offECatalogo" id="catalogo">
       <div class="cardOff">
-                <div class="linkEImg">
-                    <div class="offEimg">
-                        <h1>70% OFF LIMITADO!</h1>
-                        <a href="/src/assets/pages/pageOff.html" class="offDisco">VEJA MAIS AQUI</a>
-                    </div>
-                    <img src="https://i.ibb.co/yckTbjhV/paleta.png" alt="">
-                </div>
-                <div class="listaDiscos">
-                    <div class="cardDiscoOff">
-                        <img src="https://i.ibb.co/jZq6YsFN/amlLP.png"
-                        alt="Capa do  álbum Awaken, my love - Childish Gambino" class="imgCard">
-                        <div class="infoDisco">
-                            <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
-                            <p class="offDisco">60% Off</p>
-                        </div>
-                    </div>
-
-                    <div class="cardDiscoOff">
-                        <img src="https://i.ibb.co/jZq6YsFN/amlLP.png"
-                        alt="Capa do  álbum Awaken, my love - Childish Gambino" class="imgCard">
-                        <div class="infoDisco">
-                            <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
-                            <p class="offDisco">60% Off</p>
-                        </div>
-                    </div>
-                    <div class="cardDiscoOff">
-                        <img src="https://i.ibb.co/jZq6YsFN/amlLP.png"
-                        alt="Capa do  álbum Awaken, my love - Childish Gambino" class="imgCard">
-                        <div class="infoDisco">
-                            <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
-                            <p class="offDisco">60% Off</p>
-                        </div>
-                    </div>
-                    <div class="cardDiscoOff">
-                        <img src="https://i.ibb.co/jZq6YsFN/amlLP.png"
-                        alt="Capa do  álbum Awaken, my love - Childish Gambino" class="imgCard">
-                        <div class="infoDisco">
-                            <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
-                            <p class="offDisco">60% Off</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="linkEImg">
+          <div class="offEimg">
+            <h1>70% OFF LIMITADO!</h1>
+            <a href="/VinilDeRua-main/vinil de rua/src/assets/pages/pageOff.php" class="offDisco">VEJA MAIS AQUI</a>
+          </div>
+          <img src="https://i.ibb.co/yckTbjhV/paleta.png" alt="">
+        </div>
+        <div class="listaDiscos">
+          <div class="cardDiscoOff">
+            <img src="https://i.ibb.co/jZq6YsFN/amlLP.png"
+              alt="Capa do  álbum Awaken, my love - Childish Gambino" class="imgCard">
+            <div class="infoDisco">
+              <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
+              <p class="offDisco">60% Off</p>
             </div>
+          </div>
+
+          <div class="cardDiscoOff">
+            <img src="https://i.ibb.co/jZq6YsFN/amlLP.png"
+              alt="Capa do  álbum Awaken, my love - Childish Gambino" class="imgCard">
+            <div class="infoDisco">
+              <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
+              <p class="offDisco">60% Off</p>
+            </div>
+          </div>
+          <div class="cardDiscoOff">
+            <img src="https://i.ibb.co/jZq6YsFN/amlLP.png"
+              alt="Capa do  álbum Awaken, my love - Childish Gambino" class="imgCard">
+            <div class="infoDisco">
+              <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
+              <p class="offDisco">60% Off</p>
+            </div>
+          </div>
+          <div class="cardDiscoOff">
+            <img src="https://i.ibb.co/jZq6YsFN/amlLP.png"
+              alt="Capa do  álbum Awaken, my love - Childish Gambino" class="imgCard">
+            <div class="infoDisco">
+              <p class="nomeDisco">Awaken, my love - Childish Gambino</p>
+              <p class="offDisco">60% Off</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="catalogoIndex">
 
-    <!-- 1 -->
-    <div class="cardDisco">
-      <img src="https://i.ibb.co/HQmNvPD/1999-Vinyl.png" class="imgCard">
-      <div class="infoDisco">
-        <p class="nomeDisco">1999 - Joey Bada$$</p>
-        <p class="precoDisco">R$ 200</p>
-      </div>
-      <div class="preçoEFavDisco">
-        <a href="src/assets/scripts/addCarrinho.php?id=1" class="btnComprarAgora">Comprar agora</a>
-        <div class="cart">
-          <a href="src/assets/scripts/addCarrinho.php?id=1">
-            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
-          </a>
-        </div>
-        <div class="favorite">
-          <a href="src/assets/pages/favorito.php">
-            <img src="https://i.ibb.co/5mHR0sq/favorite-Black.png">
-          </a>
-        </div>
-      </div>
-    </div>
+        <!-- 1 -->
+        <?php foreach ($produtosFixos as $p):
+          $img   = $p['img_link'] ?: "https://i.ibb.co/BrZyvZX/defaultVinyl.png";
+          $preco = number_format($p['preco'], 2, ',', '.');
+        ?>
+          <div class="cardDisco">
 
-    <!-- 2 -->
-    <div class="cardDisco">
-      <img src="https://i.ibb.co/jZq6YsFN/amlLP.png" class="imgCard">
-      <div class="infoDisco">
-        <p class="nomeDisco">Awaken, My Love - Childish Gambino</p>
-        <p class="precoDisco">R$ 130</p>
-      </div>
-      <div class="preçoEFavDisco">
-        <a href="src/assets/scripts/addCarrinho.php?id=2" class="btnComprarAgora">Comprar agora</a>
-        <div class="cart">
-          <a href="src/assets/scripts/addCarrinho.php?id=2">
-            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
-          </a>
-        </div>
-        <div class="favorite">
-          <a href="src/assets/pages/favorito.php">
-            <img src="https://i.ibb.co/5mHR0sq/favorite-Black.png">
-          </a>
-        </div>
-      </div>
-    </div>
+            <img src="<?= $img ?>" class="imgCard">
 
-    <!-- 3 -->
-    <div class="cardDisco">
-      <img src="https://i.ibb.co/qFNWX05J/love-Vinyl.png" class="imgCard">
-      <div class="infoDisco">
-        <p class="nomeDisco">Love Deluxe - Sade</p>
-        <p class="precoDisco">R$ 150</p>
-      </div>
-      <div class="preçoEFavDisco">
-        <a href="src/assets/scripts/addCarrinho.php?id=3" class="btnComprarAgora">Comprar agora</a>
-        <div class="cart">
-          <a href="src/assets/scripts/addCarrinho.php?id=3">
-            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
-          </a>
-        </div>
-        <div class="favorite">
-          <a href="src/assets/pages/favorito.php">
-            <img src="https://i.ibb.co/5mHR0sq/favorite-Black.png">
-          </a>
-        </div>
-      </div>
-    </div>
+            <div class="infoDisco">
+              <p class="nomeDisco"><?= htmlspecialchars($p['nome']) ?></p>
+              <p class="precoDisco">R$ <?= $preco ?></p>
+            </div>
 
-    <!-- 4 -->
-    <div class="cardDisco">
-      <img src="https://i.ibb.co/VYVGyS5V/mr-Morale-Vinyl.png" class="imgCard">
-      <div class="infoDisco">
-        <p class="nomeDisco">Mr Morale & Big Steppers - Kendrick Lamar</p>
-        <p class="precoDisco">R$ 350</p>
-      </div>
-      <div class="preçoEFavDisco">
-        <a href="src/assets/scripts/addCarrinho.php?id=4" class="btnComprarAgora">Comprar agora</a>
-        <div class="cart">
-          <a href="src/assets/scripts/addCarrinho.php?id=4">
-            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
-          </a>
-        </div>
-        <div class="favorite">
-          <a href="src/assets/pages/favorito.php">
-            <img src="https://i.ibb.co/5mHR0sq/favorite-Black.png">
-          </a>
-        </div>
-      </div>
-    </div>
+            <div class="preçoEFavDisco">
 
-    <!-- 5 -->
-    <div class="cardDisco">
-      <img src="https://i.ibb.co/mVMF4HZ2/mmesf-Vinyl.png" class="imgCard">
-      <div class="infoDisco">
-        <p class="nomeDisco">Melt My Eyez - Denzel Curry</p>
-        <p class="precoDisco">R$ 250</p>
-      </div>
-      <div class="preçoEFavDisco">
-        <a href="src/assets/scripts/addCarrinho.php?id=5" class="btnComprarAgora">Comprar agora</a>
-        <div class="cart">
-          <a href="src/assets/scripts/addCarrinho.php?id=5">
-            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
-          </a>
-        </div>
-        <div class="favorite">
-          <a href="src/assets/pages/favorito.php"><img src="https://i.ibb.co/5mHR0sq/favorite-Black.png"></a>
-        </div>
-      </div>
-    </div>
+              <button onclick="window.location.href='src/assets/scripts/addCarrinho.php?id=<?= $p['id'] ?>'"
+                class="btnComprarAgora">
+                Comprar agora
+              </button>
 
-    <!-- 6 -->
-    <div class="cardDisco">
-      <img src="https://i.ibb.co/Fk37ghWh/recVinyl.png" class="imgCard">
-      <div class="infoDisco">
-        <p class="nomeDisco">Rap é Compromisso - Sabotage</p>
-        <p class="precoDisco">R$ 200</p>
-      </div>
-      <div class="preçoEFavDisco">
-        <a href="src/assets/scripts/addCarrinho.php?id=6" class="btnComprarAgora">Comprar agora</a>
-        <div class="cart">
-          <a href="src/assets/scripts/addCarrinho.php?id=6">
-            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
-          </a>
-        </div>
-        <div class="favorite">
-          <a href="src/assets/pages/favorito.php"><img src="https://i.ibb.co/5mHR0sq/favorite-Black.png"></a>
-        </div>
-      </div>
-    </div>
+              <div class="cart">
+                <a href="src/assets/scripts/addCarrinho.php?id=<?= $p['id'] ?>">
+                  <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
+                </a>
+              </div>
 
-    <!-- 7 -->
-    <div class="cardDisco">
-      <img src="https://i.ibb.co/6JtS9K8S/Stankonia.png" class="imgCard">
-      <div class="infoDisco">
-        <p class="nomeDisco">Stankonia - Outkast</p>
-        <p class="precoDisco">R$ 330</p>
-      </div>
-      <div class="preçoEFavDisco">
-        <a href="src/assets/scripts/addCarrinho.php?id=7" class="btnComprarAgora">Comprar agora</a>
-        <div class="cart">
-          <a href="src/assets/scripts/addCarrinho.php?id=7">
-            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
-          </a>
-        </div>
-        <div class="favorite">
-          <a href="src/assets/pages/favorito.php"><img src="https://i.ibb.co/5mHR0sq/favorite-Black.png"></a>
-        </div>
-      </div>
-    </div>
+              <div class="favorite">
+                <a href="src/assets/scripts/toggleFavorito.php?id=<?= $p['id'] ?>">
+                  <img src="https://i.ibb.co/5mHR0sq/favorite-Black.png">
+                </a>
+              </div>
 
-    <!-- 8 -->
-    <div class="cardDisco">
-      <img src="https://i.ibb.co/whBF5M2S/gnxVinyl.png" class="imgCard">
-      <div class="infoDisco">
-        <p class="nomeDisco">GNX - Kendrick Lamar</p>
-        <p class="precoDisco">R$ 320</p>
-      </div>
-      <div class="preçoEFavDisco">
-        <a href="src/assets/scripts/addCarrinho.php?id=8" class="btnComprarAgora">Comprar agora</a>
-        <div class="cart">
-          <a href="src/assets/scripts/addCarrinho.php?id=8">
-            <img src="https://i.ibb.co/6RFY694G/add-shopping-cart-1.png">
-          </a>
-        </div>
-        <div class="favorite">
-          <a href="src/assets/pages/favorito.php"><img src="https://i.ibb.co/5mHR0sq/favorite-Black.png"></a>
-        </div>
-      </div>
-    </div>
+            </div>
+          </div>
+        <?php endforeach; ?>
 
-</div>
+
+      </div>
 
     </section>
 

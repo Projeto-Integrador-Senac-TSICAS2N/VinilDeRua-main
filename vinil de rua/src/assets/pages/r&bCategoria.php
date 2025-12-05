@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require_once __DIR__ . "/../scripts/conexao.php";
 
@@ -9,6 +9,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +53,9 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <main>
         <div class="conteiner">
             <img src="https://imgs.search.brave.com/9iBz42SrPYg1NX7jkCxDRv2HAvWGveqeE7Q0DDCB9JY/rs:fit:860:0:0:0/g:ce/aHR0cDovL2hvbGx5/d29vZGxpZmUuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDE3/LzEyL3JleGZlYXR1/cmVzXzg4Nzk2Mzln/Yy5qcGc_dz02ODA" alt="Imagem categoria R&B">
-            <span><p>R&B</p></span>
+            <span>
+                <p>R&B</p>
+            </span>
         </div>
     </main>
 
@@ -78,11 +81,11 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 <?php foreach ($produtos as $p): ?>
                     <?php
-                        $id = $p['id'];
-                        $nome = $p['nome'];
-                        $autor = $p['autor'];
-                        $preco = number_format($p['preco'], 2, ',', '.');
-                        $img = $p['img_link'] ?: "https://i.ibb.co/BrZyvZX/defaultVinyl.png";
+                    $id = $p['id'];
+                    $nome = $p['nome'];
+                    $autor = $p['autor'];
+                    $preco = number_format($p['preco'], 2, ',', '.');
+                    $img = $p['img_link'] ?: "https://i.ibb.co/BrZyvZX/defaultVinyl.png";
                     ?>
 
                     <div class="cardDisco">
@@ -108,8 +111,8 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </div>
 
                             <div class="favorite">
-                                <a href="../pages/favorito.php?id=<?= $id ?>">
-                                    <img src="https://i.ibb.co/5mHR0sq/favorite-Black.png" alt="Favorito">
+                                <a href="../scripts/toggleFavorito.php?id=<?= $p['id'] ?>">
+                                    <img src="https://i.ibb.co/5mHR0sq/favorite-Black.png">
                                 </a>
                             </div>
                         </div>
@@ -133,4 +136,5 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <script src="../scripts/profileScript.js"></script>
 
 </body>
+
 </html>

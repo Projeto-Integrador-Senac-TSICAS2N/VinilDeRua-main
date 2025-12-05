@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require_once __DIR__ . "/../scripts/conexao.php";
 
@@ -9,6 +9,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +54,9 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <main>
         <div class="conteiner">
             <img src="https://i.ibb.co/TqYgxQTr/drillImg.png" alt="Imagem categoria Drill">
-            <span><p>DRILL</p></span>
+            <span>
+                <p>DRILL</p>
+            </span>
         </div>
     </main>
 
@@ -79,11 +82,11 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 <?php foreach ($produtos as $p): ?>
                     <?php
-                        $id = $p['id'];
-                        $nome = $p['nome'];
-                        $autor = $p['autor'];
-                        $preco = number_format($p['preco'], 2, ',', '.');
-                        $img = $p['img_link'] ?: "https://i.ibb.co/BrZyvZX/defaultVinyl.png";
+                    $id = $p['id'];
+                    $nome = $p['nome'];
+                    $autor = $p['autor'];
+                    $preco = number_format($p['preco'], 2, ',', '.');
+                    $img = $p['img_link'] ?: "https://i.ibb.co/BrZyvZX/defaultVinyl.png";
                     ?>
 
                     <div class="cardDisco">
@@ -109,7 +112,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </div>
 
                             <div class="favorite">
-                                <a href="../pages/favorito.php?id=<?= $id ?>">
+                                <a href="../scripts/toggleFavorito.php?id=<?= $p['id'] ?>">
                                     <img src="https://i.ibb.co/5mHR0sq/favorite-Black.png">
                                 </a>
                             </div>
@@ -133,4 +136,5 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <script src="../scripts/profileScript.js"></script>
 
 </body>
+
 </html>

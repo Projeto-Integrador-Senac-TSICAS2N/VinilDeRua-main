@@ -10,7 +10,7 @@ if (!isset($_POST['total'])) {
 
 // Verifica login
 if (!isset($_SESSION['usuario_id'])) {
-    echo "<script>alert('Faça login para continuar.'); window.location='../pages/login.php';</script>";
+    echo "<script>alert('Faça login para continuar.'); window.location='../pages/perfilUsuario.php';</script>";
     exit;
 }
 

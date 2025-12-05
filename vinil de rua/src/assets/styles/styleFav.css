@@ -255,16 +255,15 @@ main {
   min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(4, auto);
-  gap: 42px;
+  gap: 42px;  
   font-family: Arial, sans-serif;
   justify-content: center;
-  border: 2px solid red;
 }
 
 
 .cardDisco {
-  width: auto;
-  height: 270px ;
+  width: 250px;
+  height: 350px;
   border: 5px solid var(--pretoFosco);
   background: var(--gradienteCardDiscos);
   font-family: var(--fontePrimaria);
@@ -441,4 +440,11 @@ footer {
   justify-content: center;
   align-items: center;
 
+}
+.imgCard {
+    width: 100%;
+    height: 200px; /* tamanho fixo */
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #fff;
 }
