@@ -1,0 +1,142 @@
+<?php 
+require_once __DIR__ . "/../scripts/protecaoLogin.php";
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Compra</title>
+    <!-- FONTES USADASS -->
+    <link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+    <!-- SEPARAÇÃO -->
+    <link rel="stylesheet" href="../styles/styleTelaCompra.css">
+    <link rel="shortcut icon" type="imagex/png" href="../images/logoVinilDeRua.svg">
+</head>
+
+
+<body>
+
+    <div id="preloader">
+        <img src="https://i.ibb.co/qYwvJYpw/loading.gif" alt="loading" border="0">
+    </div>
+
+    <header>
+        <div class="logoHeader">
+            <a href="/VinilDeRua-main/vinil de rua/index.php"><img src="https://i.ibb.co/zhNXFH1t/logo-Vinil-De-Rua-branca.png"
+                    alt="logo-Vinil-De-Rua" border="0"></a>
+            <p>Vinil <br>de Rua</p>
+        </div>
+        <nav>
+            <a href="/VinilDeRua-main/vinil de rua/index.php">Cátalogo</a>
+            <a href="/VinilDeRua-main/vinil de rua/index.php">Ofertas</a>
+            <a href="/VinilDeRua-main/vinil de rua/index.php">Contato</a>
+        </nav>
+        <div class="icons">
+            <a href="../pages/favorito.php"><img src="https://i.ibb.co/ynVyBhq2/favorite.png"
+            alt="favorite"></a>
+
+    <a href="../pages/carrinho.php"><img src="https://i.ibb.co/JRf4dtY8/shopping-cart.png"
+            alt="shopping-cart"></a>
+
+    <div class="profile-menu">
+        <button type="button" class="profile-btn">
+            <img src="https://i.ibb.co/4RGqW28z/account-circle.png" alt="account-circle">
+        </button>
+
+        <div class="profile-dropdown">
+            <?php if (!isset($_SESSION['usuario_id'])): ?>
+
+                <!-- Não logado: só botão de login/cadastro -->
+                <a href="src/assets/pages/perfilUsuario.php">Entrar / Cadastrar</a>
+
+            <?php else: ?>
+
+                <p class="profile-hello" style="font-family: Arial, Helvetica, sans-serif;">
+                    Olá, <?= htmlspecialchars($_SESSION['usuario_nome']) ?>
+                </p>
+
+                <a href="../pages/paginaPerfil.php" style="font-family: Arial, Helvetica, sans-serif;">Página de Perfil</a>
+
+                <?php if (!empty($_SESSION['usuario_nivel']) && $_SESSION['usuario_nivel'] >= 1): ?>
+                    <a href="../pages/admPageDashboard.php" style="font-family: Arial, Helvetica, sans-serif;">Página de Admin</a>
+                <?php endif; ?>
+
+                <a href="../scripts/logout.php" style="font-family: Arial, Helvetica, sans-serif;">Logout</a>
+
+            <?php endif; ?>
+        </div>
+        </div>
+    </header>
+
+    <section class="fundoPrincipal">
+
+        <section class="telaCompra">
+
+            <section class="detalhesProduto">
+                <div class="imgProduto">
+                    <img src="" alt="imagem do produto">
+                    <div class="imgProdutoMini">
+                        <img src="" alt="zoom do produto1">
+                        <img src="" alt="zoom do produto2">
+                        <img src="" alt="zoom do produto3">
+                    </div>
+                </div>
+            </section>
+
+            <section class="infosProduto">
+                <div class="nomeProduto">
+                    <h1></h1>
+                </div>
+                <div class="tracklist">
+                    <iframe style="border-radius:12px"
+                        src="https://open.spotify.com/embed/album/4oyBv6zCwR9OePYRZbD6U9?utm_source=generator&theme=0"
+                        width="400px" height="500px" frameBorder="2"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy">
+                    </iframe>
+
+                </div>
+                <div class="finalizarCompra">
+                    <p>R$ 0,00</p>
+                    <button onclick="comprarAgora()">
+                        Comprar agora
+                    </button>
+                </div>
+            </section>
+
+        </section>
+
+        <footer id="contato">
+            <div class="footerLogo">
+                <img src="https://i.ibb.co/zhNXFH1t/logo-Vinil-De-Rua-branca.png" alt="Vinil de Rua" class="logo">
+                <h1>VINIL <br>DE RUA</h1>
+            </div>
+
+            <div class="avisosFooter">
+                <p>Duvidas? (11) 4002-8922 (SP)</p>
+                <p>Seg a Sex, 9h às 21h Sáb 10h às 18h</p>
+
+            </div>
+            <div class="termos">
+                <a href="">Termos e Condições</a>
+            </div>
+
+        </footer>
+    </section>
+
+    <script src="../scripts/zoomCompra.js"></script>
+    <script src="../scripts/loading.js"></script>
+    <script src="../scripts/compraAprovada.js"></script>
+    <script src="../scripts/telaDeCompra.js"></script>
+    <script src="../scripts/profileScript.js"></script>
+
+</body>
+
+</html>
